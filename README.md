@@ -22,6 +22,10 @@
 
 AddrChecker is a CLI tool that checks the metadata of an Ethereum address and saves the data in a CSV file. It fetches balance information ( not only the native balance of Ethereum ETH but also balance in tokens and non fungible tokens ) and also fetches information about various tags that the address might have, all using various 3rd party APIs.
 
+Ideally, this should include more address metadata elements. Unfortunately all the address related tags and reputation scores are accessible trough the EtherScan PRO subscription only. Ideally this CLI should include such information because it is super relevant as per the description available on Etherscan Documentation website **[here](https://metadata.etherscan.io/)**: _"Address Metadata provides endpoints that return additional information for addresses, including Public Name Tags and Labels, along with extra attributes like ENS and Token Reputation. This feature is available exclusively through the API Pro Plus plan."_
+
+In addition to this other things could be added like the value of all the tokens owned by the user(s), be it fungible or non fungible tokens. Also, weather or not if it is a smart contract, if the code is verified as in available to see or only the binary code is available. Other things could be added like: Funded By, Transaction Sent Last, Transaction Sent First, Internal Transactions, Erc-20 Transactions, etc.
+
 ```
 ❯ addrchecker --help
      _       _     _       ____ _               _
