@@ -68,3 +68,22 @@ addrchecker [options] <address>
 - `-o, --output [output]`: Specify output file (default: `out.csv`)
 
 ---
+
+## Testing
+
+Test with a famous address like the address that controls the gemini DOT ens domain
+
+E.g: **[etherscan.io/address/0x4c2F150Fc90fed3d8281114c2349f1906cdE5346](https://etherscan.io/address/0x4c2F150Fc90fed3d8281114c2349f1906cdE5346)**
+
+```sh
+addrchecker -c .env -o out.csv 0x4c2F150Fc90fed3d8281114c2349f1906cdE5346
+```
+
+This should output something like:
+
+```csv
+Balance(Ether),BalanceFirst3tkns(ERC20s),BalanceNFTs(count),ENSdomainName(.ens),MetaDataTags(list),IsExternallyOwnOrContract(bool)
+0.2ETH,CHI:2.0;GHO:0.38575864020335129;DOG:6.0,4NFTs,N/A,CATEG_SOCIAL:TAGS_multicall3.eth,false
+```
+
+---
