@@ -2,7 +2,7 @@ import axios from 'axios'; // FromPostmanSnippet
 
 import { BN } from "bn.js";
 
-export async function fetchBalanceERC20s(address: string, KEY: string) {
+export async function fetchBalanceERC20s(address: string /*, KEY: string*/) {
   const formatBalance = (balance: any, dec: any) => {
     const ten = new BN(10);
     const { div, mod } = balance.divmod(ten.pow(new BN(dec)));
