@@ -9,6 +9,7 @@ import * as fs from "fs";
 import { fetchBalanceNative } from "./fetch-balance-native";
 import { fetchBalanceERC20s } from "./fetch-balance-erc20s";
 import { fetchBalanceERC721s } from "./fetch-balance-erc721s";
+import { fetchENS } from "./fetch-ens";
 
 const program = new Command();
 
@@ -56,7 +57,8 @@ async function getBalance() {
   const promiseArr = [
     // fetchBalanceNative(address, ETHERSCAN_API_KEY),
     // fetchBalanceERC20s(address, CHAINBASE_API_KEY),
-    fetchBalanceERC721s(address, CHAINBASE_API_KEY),
+    // fetchBalanceERC721s(address, CHAINBASE_API_KEY),
+    fetchENS(address, ALCHEMY_API_KEY),
   ];
 
   const result = await Promise.all(promiseArr);
