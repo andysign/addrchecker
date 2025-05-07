@@ -11,6 +11,7 @@
     - [Install Globally](#install-globally)
   - [Usage](#usage)
   - [Options](#options)
+  - [Outline Diagram](#outline-diagram)
   - [Testing](#testing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -163,7 +164,7 @@ addrchecker [options] <address>
 │                                 │ │            │ │                 │ │            │
 │ ┌──────┐ ┌────────┐ ┌─────────┐ │ │ ┌────────┐ │ │ ┌─────────────┐ │ │ ┌────────┐ │
 │ │      │ │        │ │         │ │ │ │        │ │ │ │             │ │ │ │        │ │
-│ │ ETH  │ │ ERC20? │ │ ERC721? │ │ │ │ x.ens  │ │ │ │ foo;bar;..  │ │ │ │ NumTXs │ │
+│ │ ETH  │ │ ERC20? │ │ ERC721? │ │ │ │ x.ens  │ │ │ │ foo;bar;..  │ │ │ │ true/f │ │
 │ │      │ │        │ │         │ │ │ │        │ │ │ │             │ │ │ │        │ │
 │ └──────┘ └────────┘ └─────────┘ │ │ └────────┘ │ │ └─────────────┘ │ │ └────────┘ │
 │                                 │ │            │ │                 │ │            │
