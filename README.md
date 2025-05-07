@@ -21,6 +21,26 @@
 
 AddrChecker is a CLI tool that checks the metadata of an Ethereum address and saves the data in a CSV file. It fetches balance information ( not only the native balance of Ethereum ETH but also balance in tokens and non fungible tokens ) and also fetches information about various tags that the address might have, all using various 3rd party APIs.
 
+```
+❯ addrchecker --help
+     _       _     _       ____ _               _
+    / \   __| | __| |_ __ / ___| |__   ___  ___| | _____ _ __
+   / _ \ / _` |/ _` | '__| |   | '_ \ / _ \/ __| |/ / _ \ '__|
+  / ___ \ (_| | (_| | |  | |___| | | |  __/ (__|   <  __/ |
+ /_/   \_\__,_|\__,_|_|   \____|_| |_|\___|\___|_|\_\___|_|
+
+Checks the metadata of an 0x address and saves the data in a CSV
+
+Arguments:
+  address                Specify the required 42-length address, e.g: 0x0000000000000000000000000000000000000000
+
+Options:
+  -v, --version          output the current version
+  -c, --config [config]  Specify the config file path (default .env)
+  -o, --output [output]  Specify the output file (default out.csv)
+  -h, --help             display help for command
+```
+
 ---
 
 ## Requirements
