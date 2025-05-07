@@ -16,7 +16,7 @@ export async function fetchBalanceNative(address: string, KEY: string) {
     maxBodyLength: Infinity,
     url: url,
     headers: { },
-    timeout: 2900
+    timeout: 3900
   };
   try {
     const response = await axios.request(config);

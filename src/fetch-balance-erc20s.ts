@@ -14,7 +14,7 @@ export async function fetchBalanceERC20s(address: string /*, KEY: string*/) {
     maxBodyLength: Infinity,
     url: url,
     headers: { },
-    timeout: 2900
+    timeout: 3900
   };
   // const url = `https://api.chainbase.online/v1/account/tokens` +
   //   `?limit=3&page=1&chain_id=1&address=${address}`;

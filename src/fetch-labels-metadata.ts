@@ -10,7 +10,7 @@ export async function fetchLabelsMetadata(address: string, KEY: string) {
     headers: {
       'x-api-key': KEY
     },
-    timeout: 2900
+    timeout: 3900
   };
 
   try {
@@ -18,7 +18,7 @@ export async function fetchLabelsMetadata(address: string, KEY: string) {
     const { data } = response.data;
     const labels = data[address.toLowerCase()];
     const parseAndConvert = (jsonData: any) => {
-      return jsonData.map((item: any) => {
+      return jsonData?.map((item: any) => {
         const category = item.category;
         const tags = item.tags;
         const processedCategory = 'CATEG_' + category.split(' ').join('_').toUpperCase();

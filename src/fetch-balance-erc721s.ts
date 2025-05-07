@@ -18,7 +18,7 @@ const axios = require('axios');
     maxBodyLength: Infinity,
     url: url,
     headers: { },
-    timeout: 2900,
+    timeout: 3900,
     data : ""
   };
 
