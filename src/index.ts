@@ -8,6 +8,7 @@ import * as fs from "fs";
 
 import { fetchBalanceNative } from "./fetch-balance-native";
 import { fetchBalanceERC20s } from "./fetch-balance-erc20s";
+import { fetchBalanceERC721s } from "./fetch-balance-erc721s";
 
 const program = new Command();
 
@@ -17,7 +18,7 @@ const CONFIG_DEFAULT = "./.env";
 
 let address = "", output = "", config = "";
 
-let ETHERSCAN_API_KEY = "", CHAINBASE_API_KEY = "";
+let ETHERSCAN_API_KEY = "", CHAINBASE_API_KEY = "", ALCHEMY_API_KEY = "";
 
 program
   .version('1.0.0', '-v, --version', 'output the current version')
@@ -51,10 +52,13 @@ else {
 async function getBalance() {
   if (process.env.ETHERSCAN_API_KEY) ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
   if (process.env.CHAINBASE_API_KEY) CHAINBASE_API_KEY = process.env.CHAINBASE_API_KEY;
+  if (process.env.ALCHEMY_API_KEY) ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;
   const promiseArr = [
-    fetchBalanceNative(address, ETHERSCAN_API_KEY),
-    fetchBalanceERC20s(address, CHAINBASE_API_KEY),
+    // fetchBalanceNative(address, ETHERSCAN_API_KEY),
+    // fetchBalanceERC20s(address, CHAINBASE_API_KEY),
+    fetchBalanceERC721s(address, CHAINBASE_API_KEY),
   ];
+
   const result = await Promise.all(promiseArr);
   console.log(result);
 }
