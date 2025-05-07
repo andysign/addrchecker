@@ -1,27 +1,30 @@
 {
-  "name": "elliptic-addrchecker",
+  "name": "addrchecker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "bin": {
+    "addrchecker": "./dist/index.js"
+  },
   "scripts": {
+    "build": "rimraf dist && tsc",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andysign/addrchecker.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "CC BY 3.0 Unported",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/andysign/addrchecker/issues"
-  },
-  "homepage": "https://github.com/andysign/addrchecker#readme",
   "devDependencies": {
-    "@types/node": "^22.15.16",
+    "@types/bn.js": "^5.1.6",
+    "@types/figlet": "^1.7.0",
+    "@types/node": "^22.15.14",
     "rimraf": "^6.0.1",
+    "ts-jest": "^29.3.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "uuid": "^11.1.0"
   }
 }
