@@ -11,7 +11,6 @@
     "start": "node dist/index.js",
     "dev": "nodemon --watch src --ext ts --exec \"npm run build && npm run start\"",
     "uninstall": "npm uninstall -g addrchecker",
-    "install": "npm i -g .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
