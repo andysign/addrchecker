@@ -1,4 +1,7 @@
+#! /usr/bin/env node
+
 import figlet from "figlet";
+import chalk from "chalk";
 import { Command } from "commander";
 
 const program = new Command();
