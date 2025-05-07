@@ -1,0 +1,2 @@
+Balance(Ether),BalanceFirst3tkns(ERC20s),BalanceNFTs(count),ENSdomainName(.ens),MetaDataTags(list),IsExternallyOwnOrContract(bool)
+0.2ETH,CHI:2.0;GHO:0.38575864020335129;DOG:6.0,4NFTs,N/A,CATEG_SOCIAL:TAGS_multicall3.eth,false
