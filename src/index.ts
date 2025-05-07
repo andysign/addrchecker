@@ -5,6 +5,7 @@ import chalk from "chalk";
 import { Command } from "commander";
 import { default as env } from "dotenv";
 import * as fs from "fs";
+import { createObjectCsvWriter } from 'csv-writer';
 
 import { fetchBalanceNative } from "./fetch-balance-native";
 import { fetchBalanceERC20s } from "./fetch-balance-erc20s";
@@ -52,7 +53,7 @@ else {
   console.error("CannotFindCfgFile");
 }
 
-async function getBalance() {
+async function fetchAndSave() {
   if (process.env.ETHERSCAN_API_KEY) ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
   if (process.env.CHAINBASE_API_KEY) CHAINBASE_API_KEY = process.env.CHAINBASE_API_KEY;
   if (process.env.ALCHEMY_API_KEY) ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;
@@ -67,7 +68,37 @@ async function getBalance() {
   ];
 
   const result = await Promise.all(promiseArr);
-  console.log(result);
+
+  // const result = [
+  //   '9.166564326948819435ETH',
+  //   'LPT:2.138487312887138189;OMG:46.214859429674783871;XDATA:118.825549636387764898',
+  //   '64NFTs',
+  //   'gemini.eth',
+  //   'CATEG_CEX_USERS:TAGS_Gemini_User;CATEG_INSTITUTION:TAGS_Gemini_Deployer_2;CATEG_SOCIAL:TAGS_gusd.eth',
+  //   'true'
+  // ]
+
+  const [balEth, balERC20s, balNFTs, ensDomain, metadataList, isEOA] = result;
+  const csvWriter = createObjectCsvWriter({
+    path: output,
+    header: [
+      { id: 'balEth', title: 'Balance(Ether)' },
+      { id: 'balERC20s', title: 'BalanceFirst3tkns(ERC20s)' },
+      { id: 'balNFTs', title: 'BalanceNFTs(count)' },
+      { id: 'ensDomain', title: 'ENSdomainName(.ens)' },
+      { id: 'metadataList', title: 'MetaDataTags(list)' },
+      { id: 'isEOA', title: 'IsExternallyOwnOrContract(bool)' },
+    ],
+  });
+  try {
+    await csvWriter.writeRecords([
+      { balEth, balERC20s, balNFTs, ensDomain, metadataList, isEOA }
+    ]);
+  } catch (e) {
+    console.error("ErrorSavingCsv ", e);
+    throw e;
+  }
+  return "PATH: " + output;
 }
 
-getBalance().then(console.log);
+fetchAndSave().then(console.log).catch(e=>console.error(e));
